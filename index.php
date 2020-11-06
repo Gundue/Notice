@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>MySql-PHP 연결 테스트</title>
+  <title>test</title>
 </head>
 <body>
  
@@ -9,7 +9,7 @@
 echo "MySql 연결 테스트<br>";
  
 $db = mysqli_connect("localhost", "pgw", "aa123456", "stu_pgw");
- 
+
 if($db){
     echo "connect : 성공<br>";
 }
