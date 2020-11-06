@@ -1,26 +1,34 @@
+<?php include "./db.php"; ?>
 <!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>test</title>
+  <meta charset="UTF-8">
+  <title>회원가입 및 로그인</title>
+  <link rel="stylesheet" herf="./css/common.css"></link>
 </head>
 <body>
- 
-<?php
-echo "MySql 연결 테스트<br>";
- 
-$db = mysqli_connect("localhost", "pgw", "aa123456", "stu_pgw");
-
-if($db){
-    echo "connect : 성공<br>";
-}
-else{
-    echo "disconnect : 실패<br>";
-}
- 
-$result = mysqli_query($db, 'SELECT VERSION() as VERSION');
-$data = mysqli_fetch_assoc($result);
-echo $data['VERSION'];
-?>
- 
+  <div id="login_box">
+    <h1>로그인</h1>
+    <form action="/member/login_ok.php" method="post">
+      <table>
+        <tr>
+          <td>
+            <input type="text" name="userid">
+          </td>
+          <td>
+            <input type="password" name="userpw">
+          </td>
+          <td>
+            <button type="submit">로그인</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="/member/member.php">회원가입</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
 </body>
 </html>
