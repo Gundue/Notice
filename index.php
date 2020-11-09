@@ -9,7 +9,7 @@
 <body>
   <div id="login_box">
     <h1>로그인</h1>
-    <form action="/member/login_ok.php" method="post">
+    <form action="/login/login_ok.php" method="post">
       <table>
         <tr>
           <td>
