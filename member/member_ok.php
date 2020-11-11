@@ -11,7 +11,7 @@
     $adress = $_POST['adress'];
     $adress_detail = $_POST['adress_detail'];
     $reg_time = date("Y/m/d");
-    $login_time = null;
+    $login_time = time();
 
     $id_check = mq("select * from bd_member where bm_id='$userid'");
         $id_check = mysqli_fetch_array($id_check);
