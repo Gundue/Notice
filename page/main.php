@@ -1,5 +1,5 @@
 <?php 
-session_start();
+include "../db.php";
 include "../welcom.php";
 ?>
 <!DOCTYPE html>
@@ -7,17 +7,12 @@ include "../welcom.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>게시판</title>
     <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
-    <?php 
-        $connect = mysqli_connect("localhost", "pgw", "aa123456", "stu_pgw") or die ("connect fail");
-        $sql = "select * from bd_board order by bb_idx desc";
-        $result = $connect -> query($sql);
-        $total = mysqli_num_rows($result);
-    ?>
-    <h2>게시판</h2>
+    <div id="board_area">
+    <h1>게시판</h1>
     <table>
     <th>
     <tr>
@@ -28,32 +23,30 @@ include "../welcom.php";
         <td width="50" >조회수</td>
         </tr>
     </th>
-    <tbody>
-        <?php
-        while($rows = mysqli_fetch_assoc($result)){
-            if($total%2==0) {
-        ?> <tr class="even">
-        <?php
-            } else {
-        ?> </tr>
-        <?php } ?>
-            <td width = "50"><?php echo $total?></td>
-            <td width = "500">
-            <a href = "view.php?number=<?php echo $rows['number']?>">
-            <?php echo $rows['bb_title']?></td>
-            <td width = "100"><?php echo $rows['bm_idx']?></td>
-            <td width = "200"><?php echo $rows['date']?></td>
-            <td width = "50"><?php echo $rows['hit']?></td>
-            </tr>
-        <?php
-                $total--;
-                }
+    <?php
+        $sql = mq("select * from bd_board order by bb_idx desc limit 0,5");
+        while($bd_board = $sql -> fetch_array())
+        {
+            $title=$bd_board["bb_title"];
+            if(strlen($title)>30)
+            {
+                $title=str_replace($bd_board['bb_title'],mb_substr($bd_board["bb_title"],0,30,"utf-8")."...",$board["title"]);
+            }
         ?>
+        <tbody>
+            <tr>
+                <td width="70"><?php echo $bd_board['bb_idx'];?></td>
+                <td width="500"><a href=""></a><?php echo $title?></td>
+                <td width="120"><?php echo $bd_board['bb_name'];?></td>
+                <td></td>
+            </tr>
         </tbody>
+        <?php } ?>
         </table>
-        <div class = text>
-        <font style="cursor: hand"onClick="location.href='./write.php'">글쓰기</font>
+        <div class="write_btn">
+            <a href="/page/write.php"><button>글쓰기</button></a>
         </div>
+    </div>
 </body>
 </html>
  
