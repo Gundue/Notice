@@ -4,34 +4,63 @@
 <head>
   <meta charset="UTF-8">
   <title>회원가입 및 로그인</title>
-  <link rel="stylesheet" herf="./css/common.css"></link>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-  <div id="login_box">
-    <h1>로그인</h1>
-    <form action="/login/login_ok.php" method="post">
-      <table>
-        <tr>
-          <td>
-            <input type="text" name="userid">
-          </td>
-          <td>
-            <input type="password" name="userpw">
-          </td>
-          <td>
-            <button type="submit">로그인</button>
-          </td>
-        </tr>
-        <tr>
-        <td>
-        <input type="checkbox" id="idSaveCheck">아이디저장
-        </td>
-          <td>
-            <a href="/member/member.php">회원가입</a>
-          </td>
-        </tr>
-      </table>
-    </form>
-  </div>
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+
+				<form action="/login/login_ok.php" method="post" class="login100-form validate-form">
+					<span class="login100-form-title">
+						Member login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="userid" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="userpw" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+					<div class="text-center p-t-136">
+						<a class="txt2" href="/member/member.php">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

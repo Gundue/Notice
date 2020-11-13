@@ -25,8 +25,14 @@
     <div class="replay_view">
         <h3>댓글목록</h3>
         <?php
-            $sql2 = mq("select * from bd_comments where ")
-        ?>
+            $sql2 = mq("select * from bd_comments where bb_idx'".$bno."' order by bc_idx desc");
+            #while($reply = $sql2 -> fetch_array()) {
+            #}
+                ?>
+            <div class="dab_lo">
+                <div><b><?php echo $reply['bc_idx']; ?></b></div>
+                <?php echo $reply['bc_content']; ?>
+            </div>
     </div>
 </body>
 </html>

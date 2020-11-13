@@ -7,7 +7,7 @@ $content = $_POST['content'];
 $file = null;
 $idx = $_SESSION['idx'];
 $date = strtotime("now");
-$dat2 = date($date);
+$dat2 = date("Y-m-d", $date);
 $bb_modify = null;
 
 if($title && $content){
