@@ -17,27 +17,31 @@ include "../welcom.php";
     <th>
     <tr>
         <td width="50" >번호</td>
-        <td width="500">제목</td>
-        <td width="100">작성자</td>
-        <td width="200">날짜</td>
-        <td width="50" >조회수</td>
+        <td width="500">게시판 제목</td>
+        <td width="150">게시판 작성자</td>
+        <td width="200">글 생성일</td>
         </tr>
     </th>
     <?php
         $sql = mq("select * from bd_board order by bb_idx desc limit 0,5");
-        while($bd_board = $sql -> fetch_array())
+        while($board = $sql -> fetch_array())
         {
-            $title=$bd_board["bb_title"];
+            $title=$board["bb_title"];
             if(strlen($title)>30)
             {
-                $title=str_replace($bd_board['bb_title'],mb_substr($bd_board["bb_title"],0,30,"utf-8")."...",$board["title"]);
+                $title=str_replace($board['bb_title'],mb_substr($board["bb_title"],0,30,"utf-8")."...",$board["bb_title"]);
             }
         ?>
+        <?php
+                $query = mq("select * FROM bd_board as board inner join bd_member as member on board.bm_idx = member.bm_idx");
+                $qq = $query -> fetch_array();
+                ?>
         <tbody>
             <tr>
-                <td width="70"><?php echo $bd_board['bb_idx'];?></td>
-                <td width="500"><a href=""></a><?php echo $title?></td>
-                <td width="120"><?php echo $bd_board['bb_name'];?></td>
+                <td width="50"><?php echo $board['bb_idx'];?></td>
+                <td width="500"><a href="/page/read.php?idx=<?php echo $board["bb_idx"];?>"><?php echo $title;?></a></td>
+                <td width="150"><?php echo $qq['bm_id']?></td>
+                <td width="200"><?php echo $board['bb_reg_time']?></td>
                 <td></td>
             </tr>
         </tbody>

@@ -17,7 +17,7 @@
 	if($_POST['userpw'] == $member['bm_pw']) {
 
 		$_SESSION['userid'] = $member["bm_id"];
-		$_SESSION['userpw'] = $member["bm_pw"];
+		$_SESSION['idx'] = $member["bm_idx"];
 
 		echo "<script>alert('로그인되었습니다.'); location.href='/page/main.php';</script>";
 	}else{ 

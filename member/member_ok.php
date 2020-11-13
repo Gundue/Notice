@@ -10,7 +10,7 @@
     $adress_code = $_POST['adress_code'];
     $adress = $_POST['adress'];
     $adress_detail = $_POST['adress_detail'];
-    $reg_time = date("Y/m/d");
+    $reg_time = date("Ymd");
     $login_time = null;
 
     $id_check = mq("select * from bd_member where bm_id='$userid'");
