@@ -63,4 +63,10 @@ ul li {
 .fo_re {
 	font-weight: bold;
 	color:red;
+	
 }
+
+.dab_lo {
+	border-right: 1px solid black;
+}
+

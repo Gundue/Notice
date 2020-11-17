@@ -60,8 +60,8 @@ $(".check").on("keyup", function(){ //check라는 클래스에 입력을 감지
         { userid : userid },
         function(data){
             if(data){
-                self.parent().parent().find("div").html(data);
-                self.parent().parent().find("div").css("color", "#F00");
+                self.parent().parent().find("#id_check").html(data);
+                self.parent().parent().find("#id_check").css("color", "#F00");
             }
         }
     );
