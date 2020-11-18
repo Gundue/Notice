@@ -18,10 +18,9 @@
 		$_SESSION['userid'] = $member["bm_id"];
 		$_SESSION['idx'] = $member["bm_idx"];
 
-		if(isset($_POST['remember-me'])) {
-            $cookieID = $id;
-            setcookie('cookieID', $cookieID, time()+604800, "/");
-        }
+		if(isset($_POST['test'])) {
+            setcookie('cookieID', $userid, time()+604800, "/");
+		}
 
 		echo "<script>alert('로그인되었습니다.'); location.href='../view/main.php';</script>";
 		$sql2 = mq("update bd_member set bm_login_time = '$date' where bm_id = '$userid';");

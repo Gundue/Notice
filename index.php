@@ -24,20 +24,31 @@
                     <span class="login100-form-title p-b-51">
                         Login
                     </span>
+                    <?php
+                        if(isset($_COOKIE['cookieID'])) {
+                    ?>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
+                        <input class="input100" type="text" name="userid" placeholder="Username" value="<?php echo $_COOKIE["cookieID"] ?>">
+                        <span class="focus-input100"></span>
+                    </div>
+                        <?php } else {?>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
                         <input class="input100" type="text" name="userid" placeholder="Username">
                         <span class="focus-input100"></span>
                     </div>
+                        <?php } ?>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
                         <input class="input100" type="password" name="userpw" placeholder="Password">
                         <span class="focus-input100"></span>
                     </div>
                     <div class="flex-sb-m w-full p-t-3 p-b-24">
                         <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                             <label class="label-checkbox100" for="ckb1">
                                 Remember me
-                            </label>
+                            </label>--> 
+                            <input type="checkbox" name="test" vlaue="vlaue1">
+                            remember
                         </div>
                         <div>
                             <a href="./view/member.php" class="txt1">

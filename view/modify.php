@@ -1,12 +1,12 @@
 <?php 
     include "../model/db.php";
+    include "../model/welcom.php";
 
     $bno = $_GET['idx'];
     $sql = mq("select * from bd_board where bb_idx='$bno';");
     $board = $sql->fetch_array();
     require_once('../lib/head.php');
 ?>
-
     <title>Document</title>
 </head>
 <body>
@@ -24,5 +24,4 @@
                     </div>
         </form>
     </div>
-</body>
-</html>
+<?php require_once('../lib/tail.php') ?>

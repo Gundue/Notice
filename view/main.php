@@ -1,7 +1,6 @@
 <?php 
 include "../model/db.php";
 include "../model/welcom.php";
-include "../model/paging.php";
 ?>
 <?php require_once('../lib/head.php') ?>
     <title>게시판</title>
@@ -30,10 +29,7 @@ include "../model/paging.php";
         </tr>
     </th>
     <?php
-        $start_num = pagingTop();
-        $list = pagingTop2();
-        pagingTop();
-        $sql = mq("select * FROM bd_board as board inner join bd_member as member on board.bm_idx = member.bm_idx order by bb_idx desc limit $start_num, $list");
+        require_once('../model/pagingTop.php');
         while($board = $sql -> fetch_array())
         {
             $title=$board["bb_title"];
@@ -41,11 +37,13 @@ include "../model/paging.php";
             {
                 $title=str_replace($board['bb_title'],mb_substr($board["bb_title"],0,30,"utf-8")."...",$board["bb_title"]);
             }
+        $sql2 = mq("select * from bd_comments where bb_idx = '".$board['bb_idx']."'");
+        $rep_count = mysqli_num_rows($sql2);
         ?>
         <tbody>
             <tr>
                 <td width="50"><?php echo $board['bb_idx'];?></td>
-                <td width="500"><a href="read.php?idx=<?php echo $board["bb_idx"];?>"><?php echo $title;?></a></td>
+                <td width="500"><a href="read.php?idx=<?php echo $board["bb_idx"];?>"><?php echo $title;?></a><span class="re_ct">[<?php echo $rep_count; ?>]</span></td>
                 <td width="150"><?php echo $board['bm_id']?></td>
                 <td width="200"><?php echo $board['bb_reg_time']?></td>
             </tr>
@@ -57,7 +55,7 @@ include "../model/paging.php";
         <div id="page_num">
       <ul>
         <?php
-          pagingBottom();
+          require_once('../model/pagingBottom.php')
         ?>
       </ul>
     </div>
