@@ -2,7 +2,7 @@
         if(isset($_SESSION['userid'])){
             echo "<h2>{$_SESSION['userid']} 님 환영합니다. </h2>";
     ?>
-    <a href="../controller/logout.php"><input type="button" value="로그아웃"></a>
+    <a href="../controller/logout.php"><button type="button" class="btn btn-danger">로그아웃</button></a>
     <?php
         } 
         else {

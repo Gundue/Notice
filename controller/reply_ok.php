@@ -12,5 +12,4 @@
     } else {
         echo "<script>alert('댓글작성에 실패하였습니다.');history.back();</script>";
     }
-
 ?>

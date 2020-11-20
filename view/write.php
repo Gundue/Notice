@@ -5,13 +5,14 @@ include "../model/welcom.php";
 <?php require_once('../lib/head.php') ?>
     <title>게시판</title>
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
+<div id="write_area">
     <div class="board_write">
-        <h1><a href="/">자유게시판</a></h1>
+        <h1><a href="/view.main.php">자유게시판</a></h1>
         <h4>글 작성</h4>
-        <div id="write_area">
-            <form action="../controller/write_ok.php" method="post">
+            <form action="../controller/write_ok.php" method="post"  enctype="multipart/form-data">
                 <table style="padding-top:50px" align = center width=700 border=0 cellpadding=2>                
                     <tr>
                     <td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
@@ -35,10 +36,10 @@ include "../model/welcom.php";
                                 </tr>
                             </table>
                             <div id="in_file">
-                    <input type="file" value="1" name="b_file">
+                    <input type="file" value="1" name="file">
                 </div>
                 <div class="bt_se">
-                    <button type="submit">글작성</button>
+                    <button type="submit" class="btn btn-primary">글 작성</button>
                 </div>
                         </td>
                     </tr>

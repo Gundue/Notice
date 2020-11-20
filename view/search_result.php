@@ -9,12 +9,13 @@
     <div id="board_area">
         <?php
             $category = $_GET['catgo'];
+            $str = substr($category, 3, 5);
             $search_con = $_GET['search'];
         ?>
-        <h1><?php echo $category?>에서 찾은 '<?php echo $search_con ?>'검색결과</h1>
+        <h1><?php echo $str?>에서 찾은 '<?php echo $search_con ?>'검색결과</h1>
         <h4><a href="main.php">뒤로가기</a></h4>
         <table>
-            <th>
+            <tb>
             <tr>
                 <td width="50" >번호</td>
                 <td width="500">게시판 제목</td>

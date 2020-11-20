@@ -1,0 +1,9 @@
+아이디 저장이랑 증복검사 javascript로 구현
+디자인 bootstrap
+# git add .
+
+# git commit -m "메시지 내용"
+
+# git push origin {브랜치명}
+
+코드 다시보고 모듈화해서 보기 편하게

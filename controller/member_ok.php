@@ -1,10 +1,13 @@
 <?php
     include "../model/db.php";
 
-    $userid = $_POST['userid'];
-    $userpw = $_POST['userpw'];
-    $userpw2 = $_POST['userpw2'];
-    $username = $_POST['name'];
+    global $db;
+
+    $userid =  mysqli_real_escape_string ($db, $_POST['userid']);
+    $userpw = mysqli_real_escape_string ($db, $_POST['userpw']);
+    $userpw2 = mysqli_real_escape_string ($db, $_POST['userpw2']);
+    $encrypted_password = password_hash($userpw2, PASSWORD_DEFAULT);
+    $username = mysqli_real_escape_string ($db, $_POST['name']);
     $adress_code = $_POST['adress_code'];
     $adress = $_POST['adress'];
     $adress_detail = $_POST['adress_detail'];
@@ -31,7 +34,7 @@
     }
 
     $sql = mq("insert into bd_member(bm_id,bm_pw,bm_name,bm_adress_code,bm_adress,bm_adress_detail,bm_reg_time, bm_login_time)
-    values('".$userid."','".$userpw."','".$username."','".$adress_code."','".$adress."','".$adress_detail."','".$reg_time."','".$login_time."')");
+    values('".$userid."','".$encrypted_password."','".$username."','".$adress_code."','".$adress."','".$adress_detail."','".$reg_time."','".$login_time."')");
 ?>
 
 <meta charset="utf-8"/>

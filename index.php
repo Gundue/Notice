@@ -26,6 +26,9 @@
                     </span>
                     <?php
                         if(isset($_COOKIE['cookieID'])) {
+                            $user = $_COOKIE['cookieID'];
+                            $sql = mq("select * from bd_member where bm_id = '$user'");
+                            echo "<script>alert('로그인되었습니다.'); location.href='./view/main.php';</script>";
                     ?>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
                         <input class="input100" type="text" name="userid" placeholder="Username" value="<?php echo $_COOKIE["cookieID"] ?>">
@@ -43,12 +46,10 @@
                     </div>
                     <div class="flex-sb-m w-full p-t-3 p-b-24">
                         <div class="contact100-form-checkbox">
-                            <!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="test">
                             <label class="label-checkbox100" for="ckb1">
                                 Remember me
-                            </label>--> 
-                            <input type="checkbox" name="test" vlaue="vlaue1">
-                            remember
+                            </label>
                         </div>
                         <div>
                             <a href="./view/member.php" class="txt1">

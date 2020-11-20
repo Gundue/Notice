@@ -11,20 +11,11 @@ $date = strtotime("now");
 $dat2 = date("Y-m-d", $date);
 $bb_modify = null;
 
-$uploads_dir = '../file/';
 $tmpfile =  $_FILES['file']['tmp_name'];
 $o_name = $_FILES['file']['name'];
 $filename = iconv("UTF-8", "EUC-KR",$_FILES['file']['name']);
-$allowed_ext = array('jpg', 'jpeg', 'png', 'gif', null);
-$ext = array_pop(explode('.', $o_name));
-
-if (!in_array($ext, $allowed_ext)) {
-    echo "<script>alert('허용되지 않는 확장자입니다');history.back();</script>";
-}
-$folder = $uploads_dir.$filename;
+$folder = "../file/".$filename;
 move_uploaded_file($tmpfile,$folder);
-
-$mqq = mq("alter table bd_board auto_increment =1");
 
 if ($title && $content) {
     $sql = mq("insert into bd_board(bb_title, bb_content,bb_file, bm_idx, bb_reg_time, bb_modify_time) 
