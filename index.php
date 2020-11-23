@@ -1,89 +1,109 @@
-<?php include "./model/db.php"; ?>
-<?php require_once('./lib/head.php') ?>
-    <title>게시판</title>
+<?php
+include "./model/db.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/common.css">
+
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<style>
+		img {
+			width : 500px !important;
+		}
+	</style>
 </head>
-
 <body>
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 p-t-50 p-b-90">
-                <form action="./controller/login_ok.php" method="post" class="login100-form validate-form">
-                    <span class="login100-form-title p-b-51">
-                        Login
-                    </span>
-                    <?php
-                        if(isset($_COOKIE['cookieID'])) {
-                            $user = $_COOKIE['cookieID'];
-                            $sql = mq("select * from bd_member where bm_id = '$user'");
-                            echo "<script>alert('로그인되었습니다.'); location.href='./view/main.php';</script>";
-                    ?>
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                        <input class="input100" type="text" name="userid" placeholder="Username" value="<?php echo $_COOKIE["cookieID"] ?>">
-                        <span class="focus-input100"></span>
-                    </div>
-                        <?php } else {?>
-                        <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                        <input class="input100" type="text" name="userid" placeholder="Username">
-                        <span class="focus-input100"></span>
-                    </div>
-                        <?php } ?>
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-                        <input class="input100" type="password" name="userpw" placeholder="Password">
-                        <span class="focus-input100"></span>
-                    </div>
-                    <div class="flex-sb-m w-full p-t-3 p-b-24">
-                        <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="test">
-                            <label class="label-checkbox100" for="ckb1">
-                                Remember me
-                            </label>
-                        </div>
-                        <div>
-                            <a href="./view/member.php" class="txt1">
-                                Create your Account
-                            </a>
-                        </div>
-                    </div>
-                    <div class="container-login100-form-btn m-t-17">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="dropDownSelect1"></div>
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <script src="vendor/countdowntime/countdowntime.js"></script>
-    <script src="js/main.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<?php 
+	if(isset($_SESSION['userid'])) {
+?>		
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">게시판</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        gtag('config', 'UA-23581568-13');
-    </script>
-    <script defer src="../../../../static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"rayId":"5f17058f783da27f","version":"2020.9.1","si":10}'></script>
-<?php require_once('./lib/tail.php') ?>
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.php">메인</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./view/main.php">게시판</a>
+	  </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="../controller/logout.php">로그아웃</a>
+        </div>
+      </li>
+	</ul>
+  </div>
+</nav>
+
+	<?php } else {?>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">게시판</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.php">메인</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./view/main.php">게시판</a>
+	  </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">접속하기</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="./view/login.php">로그인</a>
+          <a class="dropdown-item" href="./view/member.php">회원가입</a>
+        </div>
+      </li>
+	</ul>
+  </div>
+</nav>
+	<?php } ?>
+
+
+<div class="container" style="margin-Top : 50px;">
+		<div class="jumbotron">
+			<div class="container">
+				<h1 style="font-size : 100px">게시판</h1>
+				<p>여러분의 옷과 패션을 보여주세요!!</p>
+				<a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a>
+			</div>
+		</div>
+	</div>
+	<!-- 메인 페이지 이미지 삽입 영역 -->
+	<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active" data-interval="10000">
+			<img src="../images/slideImage.jpg" class="d-block w-100" width="500px" height="400px" alt="...">
+		  </div>
+		  <div class="carousel-item" data-interval="2000">
+			<img src="../images/slideImage.jpg" class="d-block w-100" height="400px" alt="...">
+		  </div>
+		  <div class="carousel-item">
+			<img src="../images/slideImage.jpg" class="d-block w-100" height="400px" alt="...">
+		  </div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Next</span>
+		</a>
+	  </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>

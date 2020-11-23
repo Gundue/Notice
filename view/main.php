@@ -4,14 +4,40 @@ include "../model/welcom.php";
 ?>
 <?php require_once('../lib/head.php') ?>
     <title>게시판</title>
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href='../css/common.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
 </head>
 <body>
-    <div id="board_area">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">게시판</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.php">메인</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="main.php">게시판</a>
+	  </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="../controller/logout.php">로그아웃</a>
+        </div>
+      </li>
+	</ul>
+  </div>
+</nav>
+
+    <div class="d-flex justify-content-between" style="margin-Top : 50px;">
+    <div class="left" style="margin-Left : 50px; margin-top:20px;">
+    <!-- <a href="https://www.netflix.com/kr/"><img src="../images/netflix.png" alt=""></a> -->
+    </div>
+    <div class="main_board">
     <h1>게시판</h1>
-    <div id="search_box">
       <form method="get">
         <select name="catgo">
             <option value="bb_title">게시판 제목</option>
@@ -20,7 +46,6 @@ include "../model/welcom.php";
         </select>
         <input type="text" name="search" size="40" require="required"><button type="submit" class="btn btn-info">검색</button>
     </form>
-    </div>
     <table class="table table-hover">
     <tr>
         <td width="70" >번호</td>
@@ -52,15 +77,22 @@ include "../model/welcom.php";
           }
         ?>
         </table>
-        <div id="page_num">
-      <ul>
-        <?php
-          require_once('../model/pagingBottom.php')
+    <nav aria-label="Page navigation example" style="margin-left: 300px">
+        <ul class="pagination">
+      <?php
+            require_once('../model/pagingBottom.php')
         ?>
       </ul>
-    </div>
+</nav>
         <div class="write_btn">
             <a href="write.php"><button type="button" class="btn btn-info">글쓰기</button></a>
         </div>
+        </div>
+        <div class="right" style="margin-right: 50px;">
+          <!-- <a href="#"><img src="../images/herowars.png" alt=""></a> -->
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+
     <?php require_once('../lib/tail.php') ?>

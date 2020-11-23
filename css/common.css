@@ -1,10 +1,10 @@
-@charset "utf-8";
-
-/* 전체 옵션 */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 * {
-	margin: 0 auto;
-	padding: 0;
-	font-family: 'Malgun gothic','Sans-Serif','Arial';
+	font-family : 'Nanum Gothic';
+}
+h1 {
+	font-family : 'Hanna';
 }
 a {
 	text-decoration: none;
@@ -21,6 +21,7 @@ ul li {
 .tc {
 	text-align:center;
 }
+
 
 /* 게시판 목록 */
 #board_area {
