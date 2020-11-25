@@ -36,10 +36,9 @@
                     </div>
                         <?php } else {?>
                         <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                        <input class="input100" type="text" name="userid" placeholder="Username">
+                        <input class="input100 focused-input" type="text" name="userid" placeholder="Username" autofocus>
                         <span class="focus-input100"></span>
                     </div>
-                        <?php } ?>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
                         <input class="input100" type="password" name="userpw" placeholder="Password">
                         <span class="focus-input100"></span>
@@ -62,9 +61,12 @@
                             Login
                         </button>
                     </div>
+                    <?php } ?>
                 </form>
             </div>
         </div>
     </div>
     <div id="dropDownSelect1"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="../js/common.js"></script>
 <?php require_once('../lib/tail.php') ?>

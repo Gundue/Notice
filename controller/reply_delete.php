@@ -1,9 +1,10 @@
 <?php
     include "../model/db.php";
 
-    $rno = $_POST['rno'];
-    $sql = mq("delete from bd_comments where bc_content = '$rno'");
+    $bno = $_GET['bb_idx']; 
+    $rno = $_GET['idx'];
+
+    $sql = mq("delete from bd_comments where bc_idx = ".$rno);
+    echo "<script>location.href='../view/read.php?idx=$bno';</script>";
 ?>
-<script>alert("댓글삭제");</script>
-<meta http-equiv="refresh" content="0 url=/view/main.php" />
 

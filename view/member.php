@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/util.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="../js/common.js"></script>
 </head>
 <body>
@@ -27,9 +27,9 @@
 						Sign Up
                     </span>
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                        <input name="userid" id="userid" class="check" placeholder="Userid"  required >
-                        <div id="id_check">아이디 증복 검사</div>
+                        <input name="userid" id="userid" class="check input100" placeholder="Userid"  autofocus>
 						<span class="focus-input100"></span>
+						<div id="id_check" style="margin-left:30px;">아이디 중복 검사</div>
                     </div>
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
 						<input class="input100" type="password" name="userpw" placeholder="Password">
@@ -45,8 +45,7 @@
 					</div>
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
 						<input class="input100" type="text" id="sample6_postcode" placeholder="adress_code" name="adress_code">
-						<span class="focus-input100"></span>
-						<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+						<span class="focus-input100"></span> <input type="button" class="btn btn-light" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="margin-left:30px;">
 					</div>
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
 						<input class="input100" type="text" id="sample6_address" placeholder="adress" name="adress">
@@ -72,15 +71,15 @@
 		</div>
 	</div>
 	<div id="dropDownSelect1"></div>
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<script src="js/main.js"></script>
+	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../vendor/animsition/js/animsition.min.js"></script>
+	<script src="../vendor/bootstrap/js/popper.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../vendor/select2/select2.min.js"></script>
+	<script src="../vendor/daterangepicker/moment.min.js"></script>
+	<script src="../vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="../vendor/countdowntime/countdowntime.js"></script>
+	<script src="../js/main.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];

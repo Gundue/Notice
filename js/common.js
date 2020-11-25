@@ -49,15 +49,15 @@ function sample6_execDaumPostcode() {
 $(document).ready(function(e) {
 $(".check").on("keyup", function(){ //check라는 클래스에 입력을 감지
     var self = $(this);
-    var userid;
+    var user;
 
-    if(self.attr("id") === "userid"){
-        userid = self.val();
+    if(self.attr("id") === "user"){
+        user = self.val();
     }
 
     $.post(
         "id_check.php",
-        { userid : userid },
+        { user : userid },
         function(data){
             if(data){
                 self.parent().parent().find("#id_check").html(data);

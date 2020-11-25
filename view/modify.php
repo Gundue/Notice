@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">게시판</a>
+  <a class="navbar-brand" href="../index.php">게시판</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,17 +24,19 @@
       <li class="nav-item">
         <a class="nav-link" href="main.php">게시판</a>
 	  </li>
-	  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="../controller/logout.php">로그아웃</a>
-        </div>
-      </li>
 	</ul>
+  <div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    회원관리
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button" onclick="location.href='../controller/logout.php'">로그아웃</button>
+  </div>
+</div>
   </div>
 </nav>
 <body>
-    <div class="container">
+    <div class="container" style="margin-Top: 50px">
         <div class="row">
         <form action="../controller/modify_ok.php?idx=<?php echo $bno;?>" method="post" enctype="multipart/form-data">
             <table class="table table-striped" style="text-align:center; border: 1px solid #dddddd">

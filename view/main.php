@@ -9,32 +9,33 @@ include "../model/welcom.php";
 </head>
 <body>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">게시판</a>
+  <a class="navbar-brand" href="../index.php">게시판</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExample02">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarsExample02" >
+    <ul class="navbar-nav mr-auto d-flex justify-content-center">
       <li class="nav-item">
         <a class="nav-link" href="../index.php">메인</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="main.php">게시판</a>
 	  </li>
-	  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="../controller/logout.php">로그아웃</a>
-        </div>
-      </li>
 	</ul>
+  <div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    회원관리
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button" onclick="location.href='../controller/logout.php'">로그아웃</button>
+  </div>
+</div>
+</div>
   </div>
 </nav>
-
     <div class="d-flex justify-content-between" style="margin-Top : 50px;">
-    <div class="left" style="margin-Left : 50px; margin-top:20px;">
-    <!-- <a href="https://www.netflix.com/kr/"><img src="../images/netflix.png" alt=""></a> -->
+    <div class="left" style="margin-Left : 50px; margin-top:50px;">
+      <!-- <a href="https://www.netflix.com/kr/"><img src="../images/netflix.png" alt=""></a> -->
     </div>
     <div class="main_board">
     <h1>게시판</h1>
@@ -44,7 +45,7 @@ include "../model/welcom.php";
             <option value="bm_id">작성자</option>
             <option value="bb_content">내용</option>
         </select>
-        <input type="text" name="search" size="40" require="required"><button type="submit" class="btn btn-info">검색</button>
+        <input type="text" name="search" size="40" value="<?php echo $_GET['search'] ?>" require="required"><button type="submit" class="btn btn-info">검색</button>
     </form>
     <table class="table table-hover">
     <tr>
@@ -53,7 +54,7 @@ include "../model/welcom.php";
         <td width="150">작성자</td>
         <td width="200">글 생성일</td>
         </tr>
-    <?php
+    <?php 
         require_once('../model/pagingTop.php');
         while($board = $sql -> fetch_array())
         {
@@ -62,13 +63,17 @@ include "../model/welcom.php";
             {
                 $title=str_replace($board['bb_title'],mb_substr($board["bb_title"],0,30,"utf-8")."...",$board["bb_title"]);
             }
+        //게시글의 댓글 카운트
         $sql2 = mq("select * from bd_comments where bb_idx = '".$board['bb_idx']."'");
         $rep_count = mysqli_num_rows($sql2);
         ?>
         <tbody>
             <tr>
                 <td width="70" ><?php echo $board['bb_idx'];?></td>
-                <td width="500"><a href="read.php?idx=<?php echo $board["bb_idx"];?>"><?php echo $title;?></a><span class="re_ct">[<?php echo $rep_count; ?>]</span></td>
+                <td width="500"><a href="read.php?idx=<?php echo $board["bb_idx"];?>"><?php echo $title;?></a><span class="re_ct"><?php if(!empty($rep_count)) {echo "[".$rep_count."]";} ?>
+                <?php if(!empty($board['bb_file'])){echo '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9c0 .013 0 .027.002.04V12l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094L15 9.499V3.5a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm4.502 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>';} ?></span></td>
                 <td width="150"><?php echo $board['bm_id']?></td>
                 <td width="200"><?php echo $board['bb_reg_time']?></td>
             </tr>
@@ -77,16 +82,17 @@ include "../model/welcom.php";
           }
         ?>
         </table>
-    <nav aria-label="Page navigation example" style="margin-left: 300px">
+    <nav aria-label="Page navigation example" style="margin-left: 100px">
         <ul class="pagination">
       <?php
             require_once('../model/pagingBottom.php')
         ?>
       </ul>
-</nav>
-        <div class="write_btn">
+      <div class="write_btn" style="margin-left: 50px;">
             <a href="write.php"><button type="button" class="btn btn-info">글쓰기</button></a>
         </div>
+</nav>
+
         </div>
         <div class="right" style="margin-right: 50px;">
           <!-- <a href="#"><img src="../images/herowars.png" alt=""></a> -->
