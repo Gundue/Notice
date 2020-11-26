@@ -1,4 +1,7 @@
 <?php
+/*
+* 세션검사
+*/
         if(isset($_SESSION['userid'])){
     ?>
     <?php

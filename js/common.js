@@ -51,13 +51,13 @@ $(".check").on("keyup", function(){ //check라는 클래스에 입력을 감지
     var self = $(this);
     var user;
 
-    if(self.attr("id") === "user"){
-        user = self.val();
+    if(self.attr("id") === "userid"){
+        userid = self.val();
     }
 
     $.post(
         "id_check.php",
-        { user : userid },
+        { userid : userid },
         function(data){
             if(data){
                 self.parent().parent().find("#id_check").html(data);

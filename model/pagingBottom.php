@@ -1,4 +1,7 @@
 <?php
+/*
+* 페이징 작동과 꾸미기
+*/
     $pre = $page-1; //pre변수에 page-1을 해준다 만약 현재 페이지가 3인데 이전버튼을 누르면 2번페이지로 갈 수 있게 함
     echo " <ul class='pagination'>
     <li class='page-item'>

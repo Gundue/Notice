@@ -1,8 +1,11 @@
 <?php
+/*
+* 댓글 작성 승인
+*/
     include "../model/db.php";
 
-    $bno = $_GET['idx'];
-    $idx = $_SESSION['idx'];
+    $bno = $_GET['idx'];     // 게시물의 idx
+    $idx = $_SESSION['idx']; // 댓글 작성자
     $date = strtotime("now");
     $dat2 = date("Y-m-d", $date);
 

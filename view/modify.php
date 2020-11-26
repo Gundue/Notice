@@ -1,44 +1,23 @@
 <?php 
+/*
+* 게시글 수정 페이지
+*/
     include "../model/db.php";
     include "../model/welcom.php";
 
-    $bno = $_GET['idx'];
-    $sql = mq("select * from bd_board where bb_idx='$bno';");
+    $bno = $_GET['idx'];                                       // 게시물의 idx값
+    $sql = mq("select * from bd_board where bb_idx='$bno';");  // idx값에 해당하는 글을 찾음
     $board = $sql->fetch_array();
     require_once('../lib/head.php');
 ?>
-    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-  <a class="navbar-brand" href="../index.php">게시판</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExample02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="../index.php">메인</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="main.php">게시판</a>
-	  </li>
-	</ul>
-  <div class="btn-group">
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    회원관리
-  </button>
-  <div class="dropdown-menu dropdown-menu-right">
-    <button class="dropdown-item" type="button" onclick="location.href='../controller/logout.php'">로그아웃</button>
-  </div>
-</div>
-  </div>
-</nav>
 <body>
+<!-- navigation -->
+  <?php require_once('../lib/navigation.php');?>
+  <form action="../controller/modify_ok.php?idx=<?php echo $bno;?>" method="post" enctype="multipart/form-data">
     <div class="container" style="margin-Top: 50px">
         <div class="row">
-        <form action="../controller/modify_ok.php?idx=<?php echo $bno;?>" method="post" enctype="multipart/form-data">
             <table class="table table-striped" style="text-align:center; border: 1px solid #dddddd">
                 <thead>        
                         <tr>
@@ -68,9 +47,9 @@
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary">글 수정</button>
-        </form>
-        </div>
-    </div>
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</form>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 <?php require_once('../lib/tail.php') ?>
