@@ -1,16 +1,10 @@
 <?php
-include "./model/db.php";
-require_once('./lib/head.php');
+  include "./model/db.php";
+  require_once('./lib/head.php');
 ?>
 	  <link rel="stylesheet" type="text/css" href="./css/common.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <style>
-  img {
-      border-radius: 50%;
-      margin: 20px;
-      width: 400px;
-      height : 400px;
-    }
   </style>
 </head>
 <body>
@@ -39,10 +33,9 @@ require_once('./lib/head.php');
 			</div>
 		</div>
 	</div>
+  <!-- mainimage -->
   <div class="d-flex justify-content-between">
-  <img src="./images/slideImage.jpg" alt="Avatar">
-  <img src="./images/slideImage.jpg" alt="Avatar">
-  <img src="./images/slideImage.jpg" alt="Avatar">
+  <img src="./images/slideImage.jpg" alt="Avatar" class="rounded mx-auto d-block">
   </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>

@@ -68,16 +68,16 @@
         ?>
         </table>
     <!-- paging design -->
-    <nav aria-label="Page navigation example" style="margin-left: 300px">
-        <ul class="pagination">
+        <nav aria-label="Page navigation example" style="margin-left: 300px">
+          <ul class="pagination">
           <?php
             require_once('../model/pagingBottom.php')
           ?>
-      </ul>
-      <div class="write_btn" style="margin-left: 50px;">
+          </ul>
+          <div class="write_btn" style="margin-left: 50px;">
             <a href="write.php"><button type="button" class="btn btn-info">글쓰기</button></a>
-      </div>
-    </nav>
+          </div>
+        </nav>
         </div> <!-- /.main_board -->
       <!-- left advertisement -->
         <div class="right" style="margin-right: 50px;">

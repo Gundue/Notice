@@ -19,7 +19,7 @@ $filename = iconv("UTF-8", "EUC-KR",$_FILES['file']['name']);
 $allowed_ext = array('jpg', 'jpeg', 'png', 'gif', null);
 $ext = array_pop(explode('.', $o_name));
 
-if (!in_array($ext, $allowed_ext)) {
+if (!in_array($ext, $allowed_ext)) {  // 확장자 검사
     echo "<script>alert('허용되지 않는 확장자입니다');history.back();</script>";
     exit();
 }
