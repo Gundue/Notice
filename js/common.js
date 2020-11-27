@@ -47,12 +47,12 @@ function sample6_execDaumPostcode() {
 }
 
 $(document).ready(function(e) {
-$(".check").on("keyup", function(){ //check라는 클래스에 입력을 감지
+$(".check").on("keyup", function(){     //check라는 클래스에 입력을 감지
     var self = $(this);
     var user;
 
-    if(self.attr("id") === "userid"){
-        userid = self.val();
+    if(self.attr("id") === "userid"){  // id값이 userid
+        userid = self.val();           // userid값을 받아옴
     }
 
     $.post(

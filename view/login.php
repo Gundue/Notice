@@ -16,14 +16,17 @@
                     <span class="login100-form-title p-b-51">
                         Login
                     </span>
+                    <!-- Userid -->
                         <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
                         <input class="input100 focused-input" type="text" name="userid" placeholder="Username" autofocus>
                         <span class="focus-input100"></span>
                     </div>
+                    <!-- Userpw -->
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
                         <input class="input100" type="password" name="userpw" placeholder="Password">
                         <span class="focus-input100"></span>
                     </div>
+                    <!-- Remember -->
                     <div class="flex-sb-m w-full p-t-3 p-b-24">
                         <div class="contact100-form-checkbox">
                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="test">

@@ -9,10 +9,10 @@
     $content = $_POST['content'];
     $date = date("Y-m-d h:i:s", strtotime("now"));
     //파일이 존재하면
-    if(!file_exists($_FILES['file']['tmp_name']) || !is_uploaded_file($_FILES['file']['tmp_name'])){
+    if(!file_exists($_FILES['file']['tmp_name']) || !is_uploaded_file($_FILES['file']['tmp_name'])) {
     $sql = mq("update bd_board set bb_title = '".$title."', bb_content='".$content."', bb_modify_time='".$date."' where bb_idx = '".$bno."'");
-    }else{
-    $uploads_dir = '../file/';
+    } else {
+    $uploads_dir = '../file/';   //업로드할 폴더
     $tmpfile =  $_FILES['file']['tmp_name'];
     $o_name = $_FILES['file']['name'];
     $filename = iconv("UTF-8", "EUC-KR",$_FILES['file']['name']);
