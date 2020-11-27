@@ -1,11 +1,13 @@
 <?php 
 /*
 * 회원가입 페이지
+* pgw
+* 2020-11-27
+* div태그에 주석 달음
 */
-	include "../model/db.php"; 
-	require_once('../lib/head.php');
-	//css link
-	require_once('../lib/bootlink.php'); 
+include "../model/db.php";           // db connection
+require_once('../lib/head.php');     // Html header 
+require_once('../lib/bootlink.php'); // css link
 ?>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>

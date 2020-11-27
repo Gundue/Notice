@@ -1,6 +1,9 @@
 <?php
 /*
-* 댓글 작성 승인
+*  댓글 작성 승인
+*  pgw
+*  2020-11-26
+*  주석 추가
 */
     include "../model/db.php";
 
@@ -15,4 +18,3 @@
     } else {
         echo "<script>alert('댓글을 입력하세요.');history.back();</script>";
     }
-?>

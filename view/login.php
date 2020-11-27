@@ -1,11 +1,13 @@
 <?php
 /*
-* 로그인 페이지
+*  로그인 페이지
+*  pgw
+*  2020-11-27
+*  주석 추가
 */
-    include "../model/db.php";
-    require_once('../lib/head.php');
-    // css link
-    require_once('../lib/bootlink.php');    
+    include "../model/db.php";           // db connection
+    require_once('../lib/head.php');     // Html header
+    require_once('../lib/bootlink.php'); // css link    
 ?>
 </head>
 <body>
@@ -34,12 +36,14 @@
                                 Remember me
                             </label>
                         </div>
+                    <!-- Register button -->
                         <div>
                             <a href="member.php" class="txt1">
                                 Create your Account
                             </a>
                         </div>
                     </div>
+                    <!-- login button -->
                     <div class="container-login100-form-btn m-t-17">
                         <button class="login100-form-btn">
                             Login
@@ -49,4 +53,4 @@
             </div> <!-- /.wrap-login100 p-t-50 p-b-90 -->
         </div> <!-- /.container-login100 -->
     </div> <!-- /.limiter -->
-<?php require_once('../lib/tail.php') ?>
+<?php require_once('../lib/tail.php') //Html tail?>

@@ -1,22 +1,25 @@
 <?php
 /*
-* 글 작성
+*  글 작성 승인
+*  pgw
+*  2020-11-27
+*  date 수정
 */
-include "../model/db.php";
+include "../model/db.php"; // db connection
 
 $title = $_POST['title'];
 $titl2 = htmlspecialchars($title);     // xss 방어
 $content = $_POST['content'];
 $conten2 = htmlspecialchars($content);
 $idx = $_SESSION['idx'];               // 작성자 idx
-$date =  date("Y-m-d h:i:s", strtotime("now"));
+$date =  date("Y-m-d", strtotime("now"));
 $bb_modify = null;
 
-$uploads_dir = '../file/';             // 업로드할 파일 경로
-$tmpfile =  $_FILES['file']['tmp_name'];
-$o_name = $_FILES['file']['name'];
+$uploads_dir = '../file/';                // 업로드할 파일 경로
+$tmpfile =  $_FILES['file']['tmp_name'];  // 임시 파일명
+$o_name = $_FILES['file']['name'];        // 원래 파일명
 $filename = iconv("UTF-8", "EUC-KR",$_FILES['file']['name']);
-$allowed_ext = array('jpg', 'jpeg', 'png', 'gif', null);
+$allowed_ext = array('jpg', 'jpeg', 'png', 'gif', null);  //업로드 가능 확장자
 $ext = array_pop(explode('.', $o_name));
 
 if (!in_array($ext, $allowed_ext)) {  // 확장자 검사

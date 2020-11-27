@@ -1,16 +1,19 @@
 <?php
 /*
-* 글 수정 승인
+*  글 수정 승인
+*  pgw
+*  2020-11-26
+*  파일업로드 오류 수정
 */
     include "../model/db.php";
 
     $bno = $_GET['idx'];        //게시글의 idx
     $title = $_POST['title'];
     $content = $_POST['content'];
-    $date = date("Y-m-d h:i:s", strtotime("now"));
+    $date = date("Y-m-d", strtotime("now"));
     //파일이 존재하면
     if(!file_exists($_FILES['file']['tmp_name']) || !is_uploaded_file($_FILES['file']['tmp_name'])) {
-    $sql = mq("update bd_board set bb_title = '".$title."', bb_content='".$content."', bb_modify_time='".$date."' where bb_idx = '".$bno."'");
+        $sql = mq("update bd_board set bb_title = '".$title."', bb_content='".$content."', bb_modify_time='".$date."' where bb_idx = '".$bno."'");
     } else {
     $uploads_dir = '../file/';   //업로드할 폴더
     $tmpfile =  $_FILES['file']['tmp_name'];

@@ -1,10 +1,14 @@
 <?php
 /*
-* 게시글 보기
+*  게시글 보기
+*  pgw
+*  2020-11-26
+*  들여쓰기 주석 추가
 */
-    include "../model/db.php";
-    include "../model/welcom.php";
-    require_once('../lib/head.php') 
+
+include "../model/session.php"; // session management
+include "../model/db.php";      // db connection
+require_once('../lib/head.php') // Html header 
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
@@ -28,15 +32,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- title -->
                     <tr>
                         <td style="width : 20%; ">글 제목</td>
                         <td colspan="8" style="text-align: left;"><?php echo $board['bb_title'];?></td>
                     </tr>
                     <tr>
+                        <!-- writer -->
                         <td>작성자</td>
                         <td colspan="2"><?php echo $board['bm_id']; ?></td>
+                        <!-- Date written -->
                         <td>작성일자</td>
                         <td colspan="2"><?php echo $board['bb_reg_time'];?></td>
+                        <!-- Modified date -->
                         <td>수정일자</td>
                         <?php
                           if(!empty($board['bb_modify_time'])) { // 게시물을 수정한 경우
@@ -123,4 +131,4 @@
           </div> <!-- /.container -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="../js/bootstrap.js"></script>
-        <?php require_once('../lib/tail.php') ?>
+    <?php require_once('../lib/tail.php') //Html tail?> 
