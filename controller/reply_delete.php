@@ -5,6 +5,7 @@
 *  2020-11-26
 *  주석추가
 */
+    include "../model/session.php";
     include "../model/db.php";
 
     $bno = $_GET['bb_idx']; // 게시물의 idx 

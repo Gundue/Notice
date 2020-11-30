@@ -5,6 +5,7 @@
 *  2020-11-26
 *  주석 추가
 */
+    include "../model/session.php";
     include "../model/db.php";
 
     global $db; // db.php의 db변수

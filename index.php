@@ -2,10 +2,10 @@
 /*
 *  메인페이지
 *  pgw
-*  2020-11-26
-*  navigation
+*  2020-11-30
+*  isset cookie -> session으로 변경
 */
-
+session_start();
 include "./model/db.php";       // db connection
 require_once('./lib/head.php'); // Html header
 ?>
@@ -15,7 +15,7 @@ require_once('./lib/head.php'); // Html header
 <body>
 <!-- navigation -->
 <?php 
-  if(isset($_COOKIE['cookieID']) && $_COOKIE['cookieID'] != "") {   //userid값이 있으면 로그아웃 버튼 navbar
+  if(isset($_SESSION['idx']) && $_SESSION['idx'] != "") {   //userid값이 있으면 로그아웃 버튼 navbar
     require_once('./lib/Inavigation.php');
     } else {                                //userid값이 없다면 로그인,회원가입 버튼 navbar
     require_once('./lib/Nnavigation.php');
@@ -30,7 +30,7 @@ require_once('./lib/head.php'); // Html header
 				<a class="btn btn-primary btn-pull" href="./view/main.php" role="button">자세히 알아보기</a>
         <?php 
         //userid값이 없으면 로그인하러가기 버튼을 보여줌
-        if(empty($_COOKIE['cookieID'])) {
+        if(empty($_SESSION['idx'])) {
         ?>
         <a class="btn btn-primary btn-pull" href="./view/login.php" role="button">로그인 하러가기</a>
         <?php } ?>

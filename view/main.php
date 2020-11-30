@@ -23,7 +23,7 @@ require_once('../lib/head.php'); // Html header
 
     <!-- left advertisement -->
     <div class="left" style="margin-Left : 50px; margin-top:50px;">
-      <a href="https://www.netflix.com/kr/"><img src="../images/netflix.png" alt=""></a>
+      <!-- <a href="https://www.netflix.com/kr/"><img src="../images/netflix.png" alt=""></a> -->
     </div>
     <!-- Search -->
     <div class="main_board">
@@ -86,7 +86,7 @@ require_once('../lib/head.php'); // Html header
         </div> <!-- /.main_board -->
       <!-- left advertisement -->
         <div class="right" style="margin-right: 50px;">
-          <a href="#"><img src="../images/herowars.png" alt=""></a>
+          <!-- <a href="#"><img src="../images/herowars.png" alt=""></a> -->
         </div> <!-- right -->
     </div> <!-- container -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

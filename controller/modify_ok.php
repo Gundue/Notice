@@ -5,6 +5,7 @@
 *  2020-11-26
 *  파일업로드 오류 수정
 */
+    include "../model/session.php";
     include "../model/db.php";
 
     $bno = $_GET['idx'];        //게시글의 idx

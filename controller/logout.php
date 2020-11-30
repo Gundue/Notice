@@ -5,7 +5,7 @@
 *  2020-11-26
 *  주석 추가
 */
-    
+session_start();
 session_unset();   //세션 변수의 등록 해지
 session_destroy(); // 세션 아이디의 삭제
 

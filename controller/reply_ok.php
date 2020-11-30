@@ -2,9 +2,10 @@
 /*
 *  댓글 작성 승인
 *  pgw
-*  2020-11-26
-*  주석 추가
+*  2020-11-30
+*  session_start 추가
 */
+    include "../model/session.php";
     include "../model/db.php";
 
     $bno = $_GET['idx'];     // 게시물의 idx
