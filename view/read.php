@@ -2,13 +2,13 @@
 /*
 *  게시글 보기
 *  pgw
-*  2020-11-26
-*  들여쓰기 주석 추가
+*  2021-05-14
+*  history.back -> $_SERVER['HTTP_REFERER']로 수정
 */
 
 include "../model/session.php"; // session management
-include "../model/db.php";      // db connection
-require_once('../lib/head.php') // Html header 
+include_once "../model/db.php";      // db connection
+require_once('../lib/head.php'); // Html header 
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
@@ -37,7 +37,7 @@ require_once('../lib/head.php') // Html header
                         <td style="width : 20%; ">글 제목</td>
                         <td colspan="8" style="text-align: left;"><?php echo $board['bb_title'];?></td>
                     </tr>
-                    <tr>
+                    <tr> 
                         <!-- writer -->
                         <td>작성자</td>
                         <td colspan="2"><?php echo $board['bm_id']; ?></td>
@@ -84,8 +84,15 @@ require_once('../lib/head.php') // Html header
                 <input type="hidden" value="<?php $bno ?>">
                 <a href="modify.php?idx=<?php echo $board['bb_idx']; ?>" class="btn btn-warning" style="margin: 5px">수정</a>
                 <a href="../controller/delete.php?idx=<?php echo $board['bb_idx']; ?>" class="btn btn-danger" style="margin: 5px">삭제</a>
-                <?php } ?>
-                <a href="javascript:history.back()" role="button" class="btn btn-primary" style="margin: 5px">목록</a>
+                <?php 
+                  }
+                    //이전페이지 history.back은 그냥 뒤로가기 버튼 HTTP_REFERER은 이전페이지를 저장했다가 호출
+                    $prevPage = $_SERVER['HTTP_REFERER'];
+                    $sub = substr($prevPage, 56, 4);
+                    echo $sub;
+                ?>
+                <!-- <a onclick="location.href='main.php?catgo=<?=$category?>&search=<?=$search?>'" role="button" class="btn btn-primary" style="margin: 5px">목록</a> -->
+                <a onclick="location.href='<?=$prevPage?>'" role="button" class="btn btn-primary" style="margin: 5px">목록</a>
             </table>
             <!-- replay_table -->
             <div class="replay_view">

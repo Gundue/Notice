@@ -6,8 +6,8 @@
 *  들여쓰기 주석 추가
 */
 
-include "../model/session.php";  //session managiment
-include "../model/db.php";       // db connection 
+include_once "../model/session.php";  //session managiment
+include_once "../model/db.php";       // db connection 
 require_once('../lib/head.php'); // Html header
 ?>
   <link rel="stylesheet" href='../css/common.css'>
@@ -16,7 +16,10 @@ require_once('../lib/head.php'); // Html header
 <body>
     <!-- navigation -->
     <?php 
-      require_once('../lib/navigation.php'); 
+      require_once('../lib/navigation.php');
+      //검색값 변수로 선언
+      $search = $_GET['search'];
+      setcookie('search', $search, time()+604800, "/");
     ?>
     <!-- container -->
     <div class="d-flex justify-content-between" style="margin-Top : 50px;">
@@ -34,7 +37,7 @@ require_once('../lib/head.php'); // Html header
             <option value="bm_id">작성자</option>
             <option value="bb_content">내용</option>
         </select>
-        <input type="text" name="search" size="40" value="<?php echo $_GET['search'] ?>" require="required"><button type="submit" class="btn btn-info">검색</button>
+        <input type="text" name="search" size="40" value="<?= $search ?>" require="required"><button type="submit" class="btn btn-info">검색</button>
     </form>
     <!-- Board Table -->
     <table class="table table-hover">

@@ -15,20 +15,20 @@ require_once('../lib/bootlink.php'); // css link
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form  method="post" action="../controller/member_ok.php" class="login100-form validate-form">
+				<form  method="post" action="../controller/member_ok.php" class="login100-form validate-form" name="data">
 					<span class="login100-form-title p-b-51">
 						Sign Up
                     </span>
 					<!-- Userid -->
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                        <input name="userid" id="userid" class="check input100" placeholder="Userid"  autofocus>
+                        <input name="userid" id="userid" class="check input100" placeholder="Userid">
 						<span class="focus-input100"></span>
 					<!-- id check-->
 						<div id="id_check" style="margin-left:30px;">아이디 중복 검사</div>
                     </div>
 					<!-- Password -->
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-						<input class="input100" type="password" name="userpw" placeholder="Password">
+						<input class="input100" type="password" name="userpw" placeholder="Password" id="userpw">
 						<span class="focus-input100"></span>
 					</div>
 					<!-- Password2 -->

@@ -40,4 +40,6 @@ require_once('./lib/head.php'); // Html header
   <img src="./images/slideImage.jpg" alt="Avatar" class="rounded mx-auto d-block" >
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
-<?php require_once('./lib/tail.php'); //Html tail ?>
+<?php require_once('./lib/tail.php'); //Html tail
+
+?>
